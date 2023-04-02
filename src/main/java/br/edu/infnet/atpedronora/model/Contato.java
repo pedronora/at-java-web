@@ -16,15 +16,17 @@ public class Contato {
     private String telefone;
     private String email;
     private LocalDate nascimento;
+    private String imageUrl;
 
     public Contato() {
     }
 
-    public Contato(String nome, String telefone, String email, LocalDate nascimento) {
+    public Contato(String nome, String telefone, String email, LocalDate nascimento, String imageUrl) {
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
         this.nascimento = nascimento;
+        this.imageUrl = imageUrl;
     }
 
     public Integer getId() {
@@ -65,5 +67,13 @@ public class Contato {
 
     public void setNascimento(LocalDate nascimento) {
         this.nascimento = nascimento;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

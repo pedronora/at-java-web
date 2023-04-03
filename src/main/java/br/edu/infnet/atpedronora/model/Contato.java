@@ -1,11 +1,13 @@
 package br.edu.infnet.atpedronora.model;
 
 import java.time.LocalDate;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Contato {
@@ -17,6 +19,9 @@ public class Contato {
     private String email;
     private LocalDate nascimento;
     private String imageUrl;
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "id_Usuario")
+    private Endereco endereco;
 
     public Contato() {
     }
@@ -76,4 +81,12 @@ public class Contato {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }    
 }
